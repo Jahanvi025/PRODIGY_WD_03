@@ -21,7 +21,7 @@ The game will declare a draw if the board is full and there is no winner.
 You can reset the game at any time by clicking the "Restart" button.
 
 
-_ # Features _
+ # Features
 
 Responsive design: The game can be played on any device with a web browser, including desktop and mobile devices.
 
@@ -33,7 +33,7 @@ Automatic win/draw detection
 
 Reset button to start a new game at any time
 
-_ # Feedback _
+# Feedback
 
 
 Feedback If you encounter any bugs or have any suggestions for improvements, please open an issue on the GitHub repository.
