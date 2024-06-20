@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  position: relative; /* Ensure container is positioned */
+  font-family: "Permanent Marker", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: #f6f5f2;
+  text-align: center;
+  height: 100%;
+}
+
+h1 {
+  font-size: 50px;
+  color: #e17a94;
+}
+
+.board {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.cell {
+  font-size: 4rem;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+  text-align: center;
+  text-transform: lowercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cell:nth-child(3n) {
+  border-right: none;
+}
+
+.cell:nth-child(n + 7) {
+  border-bottom: none;
+}
+
+.player {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #efbfa8;
+  margin-top: 10px;
+}
+
+button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 150px;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: #e5728f;
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to left, #b54460 0%, #da7f96 8%, #ca7c8f 92%, #b54460 100%);
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(0, 0%, 0%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+button:hover {
+  filter: brightness(110%);
+}
+
+button:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+canvas {
+  position: absolute; /* Position canvas absolutely */
+  top: 0;
+  left: 0;
+  z-index: 10; /* Ensure canvas is above other elements */
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to pass through to underlying elements */
+}
+.confetti-canvas {
+  transition: opacity 5s ease-out; /* 1 second transition for opacity */
+}
